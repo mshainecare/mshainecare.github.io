@@ -1,85 +1,354 @@
-<body style="margin:0; background:#f7f9fb;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mary Shaine Pimentel | Registered Nurse</title>
 
-<div style="
-  max-width: 1000px;
-  margin: auto;
-  padding: 70px 20px;
-  font-family: Arial, sans-serif;
-  color: #222;
-">
+  <style>
+    :root{
+      --bg: #f7f9fb;
+      --text: #222;
+      --muted: #6b7280;
+      --nav-bg: #111;
+      --nav-text: #aaa;
+      --nav-text-active: #fff;
+      --heading: #1f2937;
+      --accent: #2c3e50;
+      --card: #ffffff;
+      --shadow: rgba(0,0,0,0.12);
+    }
 
-  <div style="
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    flex-wrap: wrap;
-  ">
+    html { scroll-behavior: smooth; }
 
-    <!-- LEFT: Photo + Buttons -->
-    <div style="text-align: center;">
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
 
-      <img
-        src="mary-shaine.jpg"
-        alt="Mary Shaine Pimentel, Registered Nurse"
-        style="
-          width: 260px;
-          max-width: 100%;
-          border-radius: 8px;
-          box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-          margin-bottom: 20px;
-        "
-      >
+    .wrapper {
+      display: flex;
+      min-height: 100vh;
+    }
 
-      <div style="display: flex; gap: 12px; justify-content: center;">
+    /* LEFT NAV */
+    .sidebar {
+      width: 220px;
+      background: var(--nav-bg);
+      color: var(--nav-text-active);
+      padding: 36px 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      box-sizing: border-box;
+    }
 
-        <a href="#services"
-           style="
-             text-decoration: none;
-             padding: 10px 18px;
-             background: #2c3e50;
-             color: white;
-             border-radius: 4px;
-             font-size: 0.95em;
-           ">
-          Services
-        </a>
+    .brand {
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 28px;
+      line-height: 1.2;
+      font-size: 14px;
+      color: var(--nav-text-active);
+      text-transform: uppercase;
+    }
 
-        <a href="#contact"
-           style="
-             text-decoration: none;
-             padding: 10px 18px;
-             border: 1px solid #2c3e50;
-             color: #2c3e50;
-             border-radius: 4px;
-             font-size: 0.95em;
-           ">
-          Contact
-        </a>
+    .nav a {
+      display: block;
+      color: var(--nav-text);
+      text-decoration: none;
+      margin: 16px 0;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 13px;
+    }
 
-      </div>
+    .nav a:hover { color: var(--nav-text-active); }
 
-    </div>
+    /* MAIN CONTENT */
+    .content {
+      margin-left: 240px;
+      padding: 56px 40px;
+      max-width: 980px;
+      box-sizing: border-box;
+    }
 
-    <!-- RIGHT: Text -->
-    <div style="flex: 1; min-width: 260px;">
-      <h1 style="margin-bottom: 10px; color: #2c3e50;">
-        Mary Shaine Pimentel
-      </h1>
+    section {
+      margin-bottom: 80px;
+      scroll-margin-top: 20px;
+    }
 
-      <p style="font-weight: bold; margin-top: 0;">
-        Registered Nurse
+    h1, h2 {
+      color: var(--heading);
+      margin: 0 0 14px 0;
+    }
+
+    p { line-height: 1.6; }
+
+    .muted { color: var(--muted); }
+
+    /* HERO ABOUT */
+    .hero {
+      display: flex;
+      gap: 44px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      background: var(--card);
+      border-radius: 10px;
+      padding: 28px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    .hero-left {
+      text-align: center;
+      width: 260px;
+      flex: 0 0 260px;
+    }
+
+    .hero-left img {
+      width: 240px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px var(--shadow);
+      margin-bottom: 16px;
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+    }
+
+    .hero-right {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .badge-row {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #eef2f7;
+      color: var(--accent);
+    }
+
+    /* SIMPLE LIST CARD */
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 22px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
+    }
+
+    ul { margin: 0; padding-left: 18px; }
+    li { margin: 8px 0; line-height: 1.5; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 860px) {
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+      }
+      .content {
+        margin-left: 0;
+        padding: 28px 16px;
+      }
+      .wrapper { display: block; }
+      .hero { padding: 18px; }
+      .hero-left { width: 100%; flex: 1; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <!-- LEFT NAV -->
+    <aside class="sidebar">
+      <div class="brand">Mary Shaine<br>Pimentel, RN</div>
+      <nav class="nav">
+        <a href="#about">ABOUT</a>
+        <a href="#focus">CLINICAL FOCUS</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#certs">CERTIFICATIONS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="content">
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="hero">
+          <!-- LEFT: photo + buttons -->
+          <div class="hero-left">
+            <img src="PIMENTEL_CLINICAL%20GRAD.jpg" alt="Mary Shaine Pimentel, Registered Nurse" />
+
+            <div class="cta-row">
+              <a class="btn btn-primary" href="#contact">Contact</a>
+              <a class="btn btn-outline" href="#experience">Experience</a>
+            </div>
+          </div>
+
+          <!-- RIGHT: intro text -->
+          <div class="hero-right">
+            <h1>Mary Shaine Pimentel</h1>
+            <p><strong>Registered Nurse</strong> <span class="muted">• Quezon City, PH</span></p>
+
+            <p>
+              Registered Nurse with clinical experience in intensive care settings, providing evidence-based,
+              patient-centered care to critically ill patients. Detail-oriented and committed to accurate
+              documentation, patient safety, and compassionate, family-centered nursing care.
+            </p>
+
+            <div class="badge-row">
+              <span class="badge">ICU Nursing</span>
+              <span class="badge">BLS</span>
+              <span class="badge">ACLS</span>
+              <span class="badge">EHR Documentation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CLINICAL FOCUS -->
+      <section id="focus">
+        <h2>Clinical Focus</h2>
+        <div class="card two-col">
+          <div>
+            <h3 style="margin:0 0 10px 0; color: var(--heading);">Patient Care & Monitoring</h3>
+            <ul>
+              <li>ICU patient monitoring and direct nursing care</li>
+              <li>Infection control and safety protocols</li>
+              <li>Patient and family education</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="margin:0 0 10px 0; color: var(--heading);">Critical Care Support</h3>
+            <ul>
+              <li>IV therapy and infusion management</li>
+              <li>Medication administration (per physician orders)</li>
+              <li>Emergency response and rapid decision-making</li>
+            </ul>
+          </div>
+        </div>
+        <p class="muted" style="margin-top:12px;">
+          (You can edit these bullets to match exactly what she wants highlighted.)
+        </p>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <h2>Experience</h2>
+
+        <div class="card" style="margin-bottom:18px;">
+          <p style="margin:0;"><strong>Intensive Care Unit Nurse</strong></p>
+          <p class="muted" style="margin:6px 0 12px 0;">Cardinal Santos Medical Center • Jan 2024 – Present • San Juan City</p>
+          <ul>
+            <li>Delivered evidence-based nursing care in a high-acuity ICU environment.</li>
+            <li>Collaborated with physicians and multidisciplinary teams to support patient-centered care.</li>
+            <li>Maintained accurate documentation using electronic health records (EHR).</li>
+            <li>Participated in emergency responses and rapid interventions as needed.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <p style="margin:0;"><strong>Nursing Internship</strong></p>
+          <p class="muted" style="margin:6px 0 12px 0;">Rotations: ER • Maternity • OR • ICU • Med-Surg</p>
+          <ul>
+            <li>Performed essential nursing procedures under supervision and supported patient safety.</li>
+            <li>Assisted with patient care, monitoring, and education across multiple departments.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <h2>Education</h2>
+        <div class="card">
+          <p style="margin:0;"><strong>Bachelor of Science in Nursing (BSN), Magna Cum Laude</strong></p>
+          <p class="muted" style="margin:6px 0 0 0;">Trinity University of Asia – St. Luke’s College of Nursing</p>
+        </div>
+      </section>
+
+      <!-- CERTIFICATIONS -->
+      <section id="certs">
+        <h2>Certifications</h2>
+        <div class="card">
+          <ul>
+            <li>Registered Nurse (PRC Licensed)</li>
+            <li>Basic Life Support (BLS) • 2024</li>
+            <li>Advanced Cardiovascular Life Support (ACLS) • 2024</li>
+          </ul>
+          <p class="muted" style="margin-top:12px;">
+            Tip: Avoid posting license numbers publicly.
+          </p>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="card">
+          <p style="margin:0 0 10px 0;"><strong>Email:</strong> m.shaine08@gmail.com</p>
+          <p style="margin:0 0 10px 0;"><strong>Location:</strong> Quezon City, PH</p>
+          <p style="margin:0;"><strong>LinkedIn:</strong> <span class="muted">(add link here)</span></p>
+
+          <hr style="border:none; border-top:1px solid #e5e7eb; margin:16px 0;">
+
+          <p class="muted" style="margin:0;">
+            For professional inquiries only.
+          </p>
+        </div>
+      </section>
+
+      <p class="muted" style="font-size: 12px; margin-top: 40px;">
+        Disclaimer: Information on this site is for general purposes and does not replace medical advice.
       </p>
 
-      <p style="line-height: 1.6;">
-        Mary Shaine Pimentel is a licensed nurse providing compassionate,
-        patient-centered nursing care with a focus on safety, dignity,
-        and comfort. She is committed to delivering professional,
-        evidence-based care tailored to each patient’s needs.
-      </p>
-    </div>
-
+    </main>
   </div>
-
-</div>
-
 </body>
+</html>
