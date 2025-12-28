@@ -102,45 +102,19 @@
       box-shadow: 0 10px 24px rgba(0,0,0,0.06);
     }
 
+    /* ✅ removed text-align:center so it doesn't look like a profile card */
     .hero-left {
-      text-align: center;
       width: 260px;
       flex: 0 0 260px;
     }
 
     .hero-left img {
-      width: 240px;
+      width: 220px; /* slightly smaller looks nicer without buttons */
       max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 6px 18px var(--shadow);
-      margin-bottom: 16px;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
-      border: 1px solid var(--accent);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
+      margin-bottom: 0; /* no buttons, so no need for extra space */
+      display: block;
     }
 
     .hero-right {
@@ -195,6 +169,7 @@
       .wrapper { display: block; }
       .hero { padding: 18px; }
       .hero-left { width: 100%; flex: 1; }
+      .hero-left img { margin: 0 auto; } /* center image on mobile only */
       .two-col { grid-template-columns: 1fr; }
     }
   </style>
@@ -222,9 +197,11 @@
       <!-- ABOUT -->
       <section id="about">
         <div class="hero">
-          <!-- LEFT: photo + buttons -->
+          <!-- LEFT: photo only -->
           <div class="hero-left">
-            <img src="PIMENTEL_CLINICAL GRAD.jpg" alt="Mary Shaine Pimentel, Registered Nurse" />
+            <!-- ✅ space fixed using %20 -->
+            <img src="PIMENTEL_CLINICAL%20GRAD.jpg" alt="Mary Shaine Pimentel, Registered Nurse" />
+          </div>
 
           <!-- RIGHT: intro text -->
           <div class="hero-right">
@@ -268,9 +245,6 @@
             </ul>
           </div>
         </div>
-        <p class="muted" style="margin-top:12px;">
-          (You can edit these bullets to match exactly what she wants highlighted.)
-        </p>
       </section>
 
       <!-- EXPERIENCE -->
